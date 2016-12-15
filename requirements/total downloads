@@ -13,4 +13,3 @@ Scenario: Calculate with bonus
        When I request <exchange bonus>
        Then I should see a message "Your downloads after exchanging bonus are:"
        And I should see the available number of downloads
-       
