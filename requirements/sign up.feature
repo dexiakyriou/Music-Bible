@@ -23,4 +23,4 @@ Feature: Sign up
               Given that I have filled the sign_up form 
               And I have the option to check the box of agreement or disagreement with Terms
               When I check the disagreement box
-              Then I should see a message saying "You are not permitted to sign up "  
+              Then I should see a message "You are not permitted to sign up "  
