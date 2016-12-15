@@ -3,17 +3,18 @@ Feature: Log in
         # GET, PUT, DELETE
 	
   Scenario: successfull log in
-		When I give a new username and password
-		Then I should see a message saying "your new username and password are confirmed"
-                And I should see password and username on my screen
+		When I type username and password
+		Then I should see a message saying "your username and password are correct"
+                And I should see Home page
 
   Scenario: unhappy log in
-		When I forgot a new username and password 
-		Then I should see a message saying "log in again"
+		When I type an incorrect username or password 
+		Then I should see a message saying "your username or password are incorrect"
                 And I should be prompted to fill log in form again
 	
   Scenario: Log out
-    Given I have logged in
-    When I filled a new username and password in
-    Then I should see app's contents
-    And I have the option to decide what to do
+        Given I have logged in
+        When I click on |Log out| button
+        Then I should have the option to decide what to do
+        And I select to Log out
+	Then I should be moved to the |Log in form|
