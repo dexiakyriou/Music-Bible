@@ -1,7 +1,5 @@
 Feature: user_account
 
-	# POST
-  # GET, PUT, DELETE
 	
   Backround: 
            Given that I've logged in
