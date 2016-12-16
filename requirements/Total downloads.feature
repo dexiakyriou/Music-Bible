@@ -1,6 +1,5 @@
 Feature: total downloads
-        # POST
-        # GET, PUT, DELETE
+        
      
 Scenario: Calculate available downloads
        When I request "total downloads"
