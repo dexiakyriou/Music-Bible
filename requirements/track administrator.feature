@@ -1,7 +1,7 @@
 Feature: edit_records_with_track as administrator
-
-	# POST /products
-	# GET, PUT, DELETE /products/{product_id}
+         As an administrator
+	 So that I can change the database of the website
+	 I want be able to add and delete tracks from the database
 
 Background: Given I am logged in as administrator
             And I have entered the |tracks database|
