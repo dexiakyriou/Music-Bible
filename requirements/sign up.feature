@@ -1,7 +1,8 @@
 Feature: Sign up
-
-	# POST
-        # GET, PUT, DELETE
+	As a new user
+        So that I can enjoy website's features
+        I want to be able to create my unique username and password
+	
 	
   Scenario: successfull sign up
 		When I give a new username and password
