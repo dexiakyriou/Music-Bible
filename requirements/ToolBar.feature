@@ -1,4 +1,4 @@
-Feature: tool bar configuration
+Feature: Toolbar configuration
       As a user
       So that I can find tracks and albums
       I want to be able to find everything using toolbar on top of every page of website
