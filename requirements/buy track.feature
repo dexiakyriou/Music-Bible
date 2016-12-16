@@ -1,8 +1,5 @@
 Feature: buy track
 
-	# POST /tracks
-	# GET, PUT, DELETE /products/{track_id}
-
 	Scenario: happy
 		When I buy a track
 		Then I should see it's description
