@@ -1,4 +1,7 @@
-Feature: add items to cart
+Feature: add items to kart
+        As a user 
+        so That I make purchases
+        I want to be able to manage my kart(shopping basket)
 
 Backround : Given I've logged in
 
