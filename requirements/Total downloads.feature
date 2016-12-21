@@ -1,4 +1,7 @@
 Feature: total downloads
+         As a user 
+         so that I have earned bonus or have deposited money
+         I want to be able to know about my available downloads
         
      
 Scenario: Calculate available downloads
