@@ -1,5 +1,8 @@
 Feature: buy track
-
+       As a user
+       so that I make purchases
+       I want to be able to find and buy a music track
+       
 	Scenario: happy
 		When I buy a track
 		Then I should see it's description
