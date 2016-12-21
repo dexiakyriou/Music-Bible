@@ -1,4 +1,7 @@
 Feature: category of user  
+       As a user 
+       so that I have used the website
+       I want to belong to user category and have some advantages
 
 Backround : Given I ve entered my account details
 
