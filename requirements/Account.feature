@@ -1,4 +1,7 @@
 Feature: user_account
+        As a user 
+	that I can access my profile details
+	I want to be able to change or delete them
 
 	
   Backround: 
@@ -7,14 +10,14 @@ Feature: user_account
   Scenario: update details
          When I insert account editor
          And change details
-		     Then I should be prompted to press <save changes>
+	 Then I should be prompted to press <save changes>
          And I should see a message "successfull saving"
 
   Scenario: unsuccessfull updating of details
-		     When I insert account editor
+	 When I insert account editor
          And change details
-         And write some e-mail or Bank details that aren't valid
-		     Then I should be prompted to press <save changes>
+         And write some e-mail or Bank details that aren't valid 
+	 Then I should be prompted to press <save changes>
          And I should see a message "changes couldn't be saved"
          And I should be moved to the details editor again
 	
