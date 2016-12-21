@@ -1,6 +1,7 @@
 Feature: Log in
-	# POST
-        # GET, PUT, DELETE
+	As a user 
+	So that I ve access to website of the software
+	I want to be able to Log in using a unique password
 	
   Scenario: successfull log in
 		When I type username and password
