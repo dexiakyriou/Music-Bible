@@ -30,4 +30,4 @@ Find everything about greek music discography
 
 **Ιστορίες χρηστών**
 
-(https://github.com/dexiakyriou/Music-Bible/blob/master/requirements/Account.feature)
+https://github.com/dexiakyriou/Music-Bible/blob/master/requirements/Account.feature
