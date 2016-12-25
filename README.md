@@ -46,7 +46,7 @@ https://github.com/dexiakyriou/Music-Bible/blob/master/requirements/Account.feat
 
 https://github.com/dexiakyriou/Music-Bible/blob/master/requirements/Add%20items%20to%20kart.feature
 
-**ΛΑ-3 **   *AdminAccess*
+**ΛΑ-3**   *AdminAccess*
 
 Ο Διαχειριστής πρέπει να μπορεί να διαχειρίζεται τους λογαριασμούς των χρηστών
 
@@ -83,7 +83,7 @@ https://github.com/dexiakyriou/Music-Bible/blob/master/requirements/AdminManageE
 
 **User Priority** (5/5): Για το Διαχειριστή είναι από τις σημαντικότερες λειτουργίες καθώς το πρώτο πράγμα που πρέπει να κάνει πριν το οτιδήποτε είναι να εισέλθει στο σύστημα.
 
-**Technical difficulty** (2/5): Η λειτουργική αυτή απαίτηση δεν είναι ιδιαίτερα δύσκολη στην υλοποίηση αλλά απαιτεί μια κάποια καλή συνεργασία βάσης δεδομένων και hardware.
+**Technical difficulty** (2/5): Η λειτουργική αυτή απαίτηση δεν είναι ιδιαίτερα δύσκολη στην υλοποίηση αλλά απαιτεί μια κάποια καλή συνεργασία βάσης δεδομένων και **hardware**.
 
 **Ιστορίες χρηστών**
 https://github.com/dexiakyriou/Music-Bible/blob/master/requirements/AdminSignin.feature
@@ -120,7 +120,7 @@ https://github.com/dexiakyriou/Music-Bible/blob/master/requirements/Buy%20track.
 
 Ο χρήστης πρέπει να μπορεί να βλέπει , ανά πάσα στιγμή την κατηγορία που ανήκει ως χρήστης .
 
-**Description**: Ο κάθε χρήστης έχοντας πρόσβαση στις λεπτομέρειες του λογαριασμού του , έχει τη δυνατότητα να βλέπει τον τύπο της κατηγορίας του, αν ανήκει δηλαδή σε μία από τις τρεις κατηγορίες ** top user, cool user, dead user**. 
+**Description**: Ο κάθε χρήστης έχοντας πρόσβαση στις λεπτομέρειες του λογαριασμού του , έχει τη δυνατότητα να βλέπει τον τύπο της κατηγορίας του, αν ανήκει δηλαδή σε μία από τις τρεις κατηγορίες **top user, cool user, dead user**. 
 
 **User Priority** (5/5): Για τον χρήστη αυτή η λειτουργία είναι σημαντική διότι βλέπει το status της κατηγορίας του. Επιπλέον γνωρίζει κατά πόσο μπορεί να προχωρήσει σε αγορές με βάση τα bonus που κερδίζει.
 
@@ -167,7 +167,7 @@ https://github.com/dexiakyriou/Music-Bible/blob/master/requirements/FAQs.feature
 
 **User Priority** (4/5): Για τον χρήστη αυτή η λειτουργία είναι σημαντική διότι οργανώνει απευθείας στον ιστότοπο τις προτιμήσεις του.
 
-**Technical difficulty **(3/5):   Αυτή η λειτουργία είναι μέτριας δυσκολίας, περισσότερο στο σχεδιασμό της κι όχι τόσο στην υλοποίηση.
+**Technical difficulty**(3/5):   Αυτή η λειτουργία είναι μέτριας δυσκολίας, περισσότερο στο σχεδιασμό της κι όχι τόσο στην υλοποίηση.
 
 **Ιστορίες χρηστών**
 
