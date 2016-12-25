@@ -29,3 +29,5 @@ Find everything about greek music discography
 **Technical difficulty** (2/5): Αυτή η λειτουργική απαίτηση δεν είναι ιδιαίτερα δύσκολη στην υλοποίηση γιατί η εμφάνιση πληροφορίας στον χρήστη είναι κάτι απλό.
 
 **Ιστορίες χρηστών**
+
+(https://github.com/dexiakyriou/Music-Bible/blob/master/requirements/Account.feature)
