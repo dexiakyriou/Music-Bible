@@ -20,7 +20,7 @@ Scenario : Find user details
          And I should be moved to the searching tool again
          
 Scenario : Delete user account
-         When I 've accessed one user's details
+         When I have accessed one user's details
          Then I should see on the left an option to edit everything
          When I erase all details
          Then I should see " Delete account,Are you sure ? "
