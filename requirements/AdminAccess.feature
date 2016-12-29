@@ -28,7 +28,7 @@ Scenario : Delete user account
          Then I should see a message " Account",username," has been deleted"
          
 Scenario : Change user_account details
-         When I 've accessed one user's details
+         When I ve accessed one user's details
          Then I should see on the left an option to edit everything
          When I change some details
          And I press the "commit" 
