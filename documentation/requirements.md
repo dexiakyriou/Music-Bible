@@ -344,6 +344,22 @@ https://github.com/dexiakyriou/Music-Bible/blob/master/Use%20Case%20Diagram/musi
 https://github.com/dexiakyriou/Music-Bible/blob/master/Activity_Diagrams/Admin.png
 
 
+
 Διάγραμμα πληρωμής για τα προϊόντα στο καλάθι
 ![](https://github.com/dexiakyriou/Music-Bible/blob/master/Activity_Diagrams/log_in_and_pay.png)
 https://github.com/dexiakyriou/Music-Bible/blob/master/Activity_Diagrams/log_in_and_pay.png
+
+
+##Mockups and Storyboards
+
+https://github.com/dexiakyriou/Music-Bible/blob/master/documentation/Storyboard-sign_up.md
+
+https://github.com/dexiakyriou/Music-Bible/blob/master/documentation/Storyboard-Sign%20up_unhappy.md
+
+https://github.com/dexiakyriou/Music-Bible/blob/master/documentation/Storyboard-Language.md
+
+https://github.com/dexiakyriou/Music-Bible/blob/master/documentation/Storyboard-Search1.md
+
+https://github.com/dexiakyriou/Music-Bible/blob/master/documentation/Storyboard-search2.md
+
+https://github.com/dexiakyriou/Music-Bible/blob/master/documentation/Storyboard-buy_a_track.md
