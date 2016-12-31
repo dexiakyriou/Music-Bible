@@ -327,3 +327,10 @@ https://github.com/dexiakyriou/Music-Bible/blob/master/requirements/ToolBar.feat
 **Ιστορίες χρηστών**
 
 https://github.com/dexiakyriou/Music-Bible/blob/master/requirements/Total%20downloads.feature
+
+
+##Use Case Diagram
+
+
+![](https://github.com/dexiakyriou/Music-Bible/blob/master/Use%20Case%20Diagram/musicBible.png)
+https://github.com/dexiakyriou/Music-Bible/blob/master/Use%20Case%20Diagram/musicBible.png
