@@ -334,3 +334,16 @@ https://github.com/dexiakyriou/Music-Bible/blob/master/requirements/Total%20down
 
 ![](https://github.com/dexiakyriou/Music-Bible/blob/master/Use%20Case%20Diagram/musicBible.png)
 https://github.com/dexiakyriou/Music-Bible/blob/master/Use%20Case%20Diagram/musicBible.png
+
+
+##Activity Diagrams
+
+
+Διάγραμμα για τις λειτουργίες που μπορεί να κάνει ο Διαχειριστής όταν εισέλθει στο σύστημα
+![](https://github.com/dexiakyriou/Music-Bible/blob/master/Activity_Diagrams/Admin.png)
+https://github.com/dexiakyriou/Music-Bible/blob/master/Activity_Diagrams/Admin.png
+
+
+Διάγραμμα πληρωμής για τα προϊόντα στο καλάθι
+![](https://github.com/dexiakyriou/Music-Bible/blob/master/Activity_Diagrams/log_in_and_pay.png)
+https://github.com/dexiakyriou/Music-Bible/blob/master/Activity_Diagrams/log_in_and_pay.png
