@@ -1,4 +1,4 @@
-Feature : Access to the users details
+Feature: Access_to_details
         As an administrator 
         So that I have access to everything
         I want to be able to change details of users
