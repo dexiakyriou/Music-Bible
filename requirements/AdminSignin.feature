@@ -1,4 +1,4 @@
-Feature : Admin Sign in 
+Feature: Admin Sign in 
         As an administrator 
         So that I have access
         I want to be able to sign in using password in the |Log in| form
