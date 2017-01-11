@@ -1,4 +1,4 @@
-Feature : Manage e-mails to users
+Feature: Manage e-mails to users
         As an administrator
         So that I have care of success in sending information e-mails
         I want be able to manage e-mails and send to users if it is necessary
