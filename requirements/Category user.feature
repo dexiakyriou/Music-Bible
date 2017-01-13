@@ -3,7 +3,7 @@ Feature: category of user
        so that I have used the website
        I want to belong to user category and have some advantages
 
-Backround : Given I ve entered my account details
+Backround:  Given I ve entered my account details
 
 Scenario: show category
        When I insert account details
