@@ -15,7 +15,7 @@ Feature: faqs
      Then the answer from the site designer is displayed 
      And I should be able to press another question
     
-  Scenario : Find answer by searching
+  Scenario: Find answer by searching
      Given that I have been moved at the FAQs List
      When I write a question in the search bar
      Then I should be able to press |search|
