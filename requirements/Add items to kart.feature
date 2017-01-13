@@ -3,7 +3,7 @@ Feature: add items to kart
         so That I make purchases
         I want to be able to manage my kart(shopping basket)
 
-Backround : Given I've logged in
+Backround: Given I've logged in
 
 Scenario: add item
        Given I have found track after searching
@@ -23,7 +23,7 @@ Scenario: show the tracks added in my cart
        Then I should be able to see a list of tracks added
        And I should see a list of selections for every track ( delete,buy)
        
-Scenario : Buy a track
+Scenario: Buy a track
        When I press the "cart" icon at the top of any page
        Then I should be able to see a list of tracks added
        And I should see a list of selections for every track ( delete,buy)
@@ -31,7 +31,7 @@ Scenario : Buy a track
        Then I should see a message "You have payed for the track"
        And I should see a message "Your money left in your account are :"
 
-Scenario : delete a track
+Scenario: delete a track
        When I press the "cart" icon at the top of any page
        Then I should be able to see a list of tracks added
        And I should see a list of selections for every track ( delete,buy)
