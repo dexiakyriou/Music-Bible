@@ -3,7 +3,8 @@ Feature: add items to kart
         so That I make purchases
         I want to be able to manage my kart(shopping basket)
 
-Backround: Given I've logged in
+Backround: 
+        Given I've logged in
 
 Scenario: add item
        Given I have found track after searching
