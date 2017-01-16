@@ -17,7 +17,7 @@ Feature: Toolbar configuration
       When I select one
       Then I should see a message " These album doesn't exist on the site database"
   
-  Scenario: Singers of turkish discografy
+  Scenario: Singers of  discografy
       When I press the tab |Artist|
       Then a list of artists in alphabetical order should be shown
       And I should be able to select any of those artists
