@@ -17,14 +17,14 @@ Feature: search track
        Then I sould be prompted to write the track title
        And I should a message "track not found"
        
-  Scenario : Listen to music track I found
+  Scenario: Listen to music track I found
        Given that I have successfully found a track
        Then I should have the track details displayed
        And I should see the |play| button
        When I press play
        Then the track should start playing in site quality
        
-  Scenario : Track file does not exist
+  Scenario: Track file does not exist
        Given that I have successfully found a track
        Then I should have the track details displayed
        And I should see the |play| button
