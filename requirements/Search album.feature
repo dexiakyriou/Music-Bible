@@ -16,13 +16,13 @@ Feature: search album
        When I select search album by title
        Then I sould be prompted to write the albums title
        And I should a message "album not found"
-  Scenario : show album covers
+  Scenario: show album covers
        Given that I have found the album via site searching
        And the album page is displayed
        And I should see the front cover of it
        When I press on front cover
        Then I should see both covers and details of album
-  Scenario : Print album covers
+  Scenario: Print album covers
        Given that I have found the album via site searching
        And the album page is displayed
        When I press |print covers|
