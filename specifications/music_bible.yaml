@@ -1,0 +1,799 @@
+swagger: '2.0'
+info:
+  version: "0.0.1"
+  title: Music Bible
+consumes: 
+  - application/json
+produces:
+  - application/json
+####################################################################
+#              DEFINITIONS                                         #
+###################################################################
+definitions:
+  user:
+    type: object
+    required:
+      - id
+      - name
+      - password
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+      password:
+        type: string
+        format: password
+      email:
+        type: string
+      banknumber:
+        type: string
+  newuser:
+    type: object
+    required:
+      - name
+      - password
+    properties:
+      name:
+        type: string
+      password:
+        type: string
+      email:
+        type: string
+      banknumber:
+        type: string
+  admin:
+    type: object
+    required:
+      - name
+      - password
+    properties:
+      name:
+        type: string
+      password:
+        type: string
+  track:
+    type: object
+    required:
+      - id
+      - title
+    properties:
+      id:
+        type: integer
+        format: int64
+      title:
+        type: string
+      album:
+        type: string
+      artist:
+        type: string
+      chronology:
+        type: string
+      price:
+        type: number
+        format: float
+  Newtrack:
+    type: object
+    required:
+      - title
+    properties:
+      title:
+        type: string
+      album:
+        type: string
+      artist:
+        type: string
+      chronology:
+        type: string
+      price:
+        type: number
+        format: float
+  cart:
+    type: object
+    required: 
+      - cid
+      - name
+    properties:
+      cid:
+        type: integer
+        format: int64
+      name:
+        type: string
+      tracks:
+        type: array
+        items:
+          $ref: "#/definitions/track"
+      payed:
+        type: boolean
+  Newcart:
+    type: object
+    required:
+      - name
+    properties:
+      name:
+        type: string
+      tracks:
+        type: array
+        items:
+          $ref: "#/definitions/track"
+      payed:
+        type: boolean
+  conf_email:
+    type: object
+    properties:
+      name:
+        type: string
+        description: name of user 
+      sent:
+        type: boolean
+        description: if email is sent
+  FAQ:
+    type: object
+    properties:
+      theme:
+        type: string
+      question:
+        type: string
+      answer:
+        type: string
+  favorites:
+    type: object
+    required:
+      - name
+    properties:
+      name:
+        type: string
+      tracks:
+        type: string
+  history:
+    type: object
+    properties:
+      name:
+        $ref: "#/definitions/user"
+      histoire:
+        type: string
+  language:
+    type: object
+    properties:
+      country:
+        type: string
+      active:
+        type: boolean
+  logged:
+    type: object
+    required:
+      - name
+    properties:
+      name:
+        description: The name of user  
+        type: string
+      log_in:
+        type: boolean
+  Payment:
+    type: object
+    required:
+      - id
+    properties:
+      id:
+        type: integer
+        format: int64
+      money:
+        type: number
+        format: float
+  NewPayment:
+    type: object
+    properties:
+      money:
+        type: number
+        format: float      
+  post_site:
+    type: object
+    properties:
+      site:
+        type: string
+  total_downs:
+    type: object
+    description: How many downloads you are allowed to do for this month
+    properties: 
+      downs:
+        description: The number of downloads this month
+        type: integer
+      bonus:
+        description: some extra bonus in $ dollars
+        type: number
+        format : float
+#######################################################################
+#                         paths                                       #
+#######################################################################
+paths:
+  /Sign_up:
+    post:
+      description: create new user
+      parameters:
+        - name: user
+          in: body
+          description: the new user
+          schema:
+            $ref: "#/definitions/newuser"
+      responses:
+        204:
+          description: Succesfull creation
+        400:
+          description: Unsuccesfull creation.
+    get:
+      description: Get users
+      parameters:
+        - in: query
+          name: _expand
+          description: Expand to users
+          required: false
+          type: string
+      responses:
+        200:
+          description: Users succesfully retrieved
+          schema:
+            type: array
+            items:  
+              $ref: '#/definitions/user'
+  /accounts/{id}:
+    parameters:
+        - name: id
+          in: path
+          required: true
+          description: The user's id
+          type: integer
+          format: int64
+    get:
+      summary: Gets a user
+      description: Returns a user for its id
+      responses:
+        200:
+          description: user
+          schema:
+            $ref: "#/definitions/user"
+        404:
+          description: The user does not exists
+    delete:
+      description: delete a user by id
+      responses:
+        200:
+          description: user deleted
+          schema:
+            $ref: "#/definitions/user"
+        404:
+          description: The user does not exists
+    put:
+      description: update a user's account with specific id
+      parameters:
+        - name: user
+          in: body
+          required: true
+          description: Update
+          schema:  
+            $ref: '#/definitions/newuser'
+      responses:
+        200:
+          description: user updated
+          schema:
+            $ref: '#/definitions/user'
+        404:
+          description: The user does not exists.
+  /carts:
+    get:
+      description: Gets all the carts
+      parameters:
+        - in: query
+          name: _expand
+          description: Expand to users
+          required: false
+          type: string
+      responses:
+        200:
+          description: carts succesfully retrieved
+          schema:
+            $ref: '#/definitions/cart'
+    post:
+      description: create new Cart
+      operationId: addCart
+      parameters:
+        - name: cart
+          in: body
+          description: the new cart of user
+          schema:
+            $ref: "#/definitions/Newcart"
+      responses:
+        204:
+          description: Succesfull creation
+        400:
+          description: Unsuccesfull creation.
+  /Carts/{cid}:
+    parameters:
+        - name: cid
+          in: path
+          required: true
+          description: The cart's id
+          type: integer
+          format: int64
+    get:
+      summary: Gets a cart
+      description: Returns a cart for its id
+      responses:
+        200:
+          description: cart
+          schema:
+            $ref: "#/definitions/cart"
+        404:
+          description: The cart does not exists
+    delete:
+      description: delete a cart by id
+      responses:
+        200:
+          description: user deleted
+          schema:
+            $ref: "#/definitions/cart"
+        404:
+          description: The cart does not exists
+    put:
+      description: Update a cart
+      operationId: updateCart
+      parameters:
+        - name: cart
+          in: body
+          required: true
+          description: Updates
+          schema:
+            $ref: '#/definitions/Newcart'
+      responses:
+        200:
+          description: Cart updated
+          schema:
+            $ref: '#/definitions/cart'
+        404:
+          description: Customer not found      
+  /administrator{name}:
+    get:
+      summary: Admin Sign-in
+      description: Returns admin for its name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          description: The admin's name
+          type: string
+      responses:
+        200:
+          description: admin's name
+          schema:
+            $ref: "#/definitions/admin"
+        404:
+          description: Admin does not exist
+  /emails{name}:
+    put:
+      description: Send confirm_email to user
+      parameters:
+        - name: name
+          in: path
+          required: true
+          description: The user's name
+          type: string
+      responses:
+        200:
+          description: e-mail send
+          schema:
+              $ref: "#/definitions/conf_email"
+        404:
+          description: user does not exist
+  /tracks:
+    get:
+      description: Gets all tracks from database
+      parameters:
+        - name: title
+          in: query
+          required: false
+          type: string
+      responses:
+        200:
+          description: Products succesfully retrieved
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/track'
+    post:
+      description: create new track
+      parameters:
+        - name: track
+          in: body
+          description: the new track in the database
+          schema:
+            $ref: "#/definitions/Newtrack"
+      responses:
+        204:
+          description: Succesfull creation
+        400:
+          description: Unsuccesfull creation.
+    delete:
+      description: delete a track by title
+      parameters: 
+        - name: title
+          in: query
+          required: true
+          description: track title
+          type: string
+      responses:
+        200:
+          description: track deleted
+          schema:
+            $ref: "#/definitions/track"
+        404:
+          description: The track does not exist
+  /tracks/{tid}:
+    parameters:
+      - name: tid
+        in: path
+        required: true
+        type: integer
+        format: int64
+    get:
+      description: Get a track with id
+      responses:
+        200:
+          description: Product succesfully retrieved
+          schema:
+            $ref: '#/definitions/track'
+        404:
+          description: Product not found
+    put:
+      description: Update a product with id
+      parameters:
+        - name: track
+          in: body
+          required: true
+          description: Updates
+          schema:
+            $ref: '#/definitions/Newtrack'
+      responses:
+        200:
+          description: Product updated
+          schema:
+            $ref: '#/definitions/track'
+        404:
+          description: Product not found      
+  /FAQs:
+    get:
+      description: Gets all FAQs
+      parameters:
+        - name: theme
+          in: query
+          required: false
+          type: string
+      responses:
+        200:
+          description: FAQS succesfully retrieved
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FAQ'
+  /favorite:
+    post:
+      description: Create a user's favorite folder for first time 
+      parameters:
+        - name: user
+          in: body
+          description: The user's first favorite
+          schema:
+            $ref: '#/definitions/favorites'
+      responses:
+        204:
+          description: Succesfull creation
+        400:
+          description: Unsuccesfull creation.
+  /Favorites/{name}:
+    parameters:
+        - name: name
+          in: path
+          required: true
+          description: The user's name
+          type: string
+    get:
+      summary: Gets favorites 
+      description: Returns favorite for user with specific name
+      responses:
+        200:
+          description: user's favorites
+          schema:
+            $ref: "#/definitions/favorites"
+        404:
+          description: The user does not exists
+    delete:
+      description: delete  user's favorite tracks
+      responses:
+        200:
+          description: user's favorite deleted
+          schema:
+            $ref: "#/definitions/favorites"
+        404:
+          description: The user does not exist
+    put:
+      description: update user's favorite
+      responses:
+        200:
+          description: user's favorites updated
+          schema:
+            $ref: "#/definitions/favorites"
+        404:
+          description: The user does not exist
+  /History/{name}:
+    parameters:
+        - name: name
+          in: path
+          required: true
+          description: The user's name
+          type: string
+    get:
+      summary: Gets a user's history
+      description: Returns user's history for its name
+      responses:
+        200:
+          description: Your History
+          schema:
+            $ref: "#/definitions/history"
+        404:
+          description: The user does not exists
+    put:
+      description: update user's history
+      responses:
+        200:
+          description: user's History updated
+          schema:
+            $ref: "#/definitions/history"
+        404:
+          description: The user does not exist      
+  /create_languages:
+    post:
+      description: post languages
+      parameters:
+        - name: language
+          in: body
+          description: new language
+          schema:
+            $ref: "#/definitions/language"
+      responses:
+        204:
+          description: Succesfull creation
+        400:
+          description: Unsuccesfull creation
+  /Languages:
+    get:
+      description: Gets all language
+      responses:
+        200:
+          description: The languages you can choose
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/language"
+  /Languages{country}:
+    parameters:
+        - name: country
+          in: path
+          required: true
+          description: The language you want to activate
+          type: string
+    put:
+      description: activate language
+      responses:
+        200:
+          description: language updated
+          schema:
+            $ref: "#/definitions/language"
+        404:
+          description: The user does not exist
+  /Log_in/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        description: The user's name
+        type: integer
+        format: int64
+    get:
+      summary: Shows if a user is Logged
+      description: Returns user's situation
+      responses:
+        200:
+          description: You are in
+          schema:
+            $ref: "#/definitions/logged"
+        404:
+          description: The user does not exists
+    put:
+      parameters:
+      - name: logged_in_user
+        in: body
+        required: true
+        description: are you logged in?
+        schema:  
+            $ref: '#/definitions/logged'
+      description: change the boolean for Sign in
+      responses:
+        200:
+          description: Sign in or out
+        404:
+          description: The user does not exist
+  /pay:
+    post:
+      description: make a Payment
+      parameters:
+        - name: money
+          in: body
+          description: the ammount of purchase
+          schema:
+            $ref: "#/definitions/NewPayment"
+      responses:
+        204:
+          description: Succesfull creation
+        400:
+          description: Unsuccesfull creation.
+    get:
+      description:  All Payments
+      responses:
+        200:
+          description: Users succesfully retrieved
+          schema:
+              $ref: '#/definitions/Payment'
+        404:
+          description: No retrievements
+  /pay/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        description: The id of your payment
+        type: integer
+        format: int64
+    delete:
+      description: Delete payment
+      responses:
+        200:
+          description: Payment deleted
+          schema:
+            $ref: "#/definitions/Payment"
+        404:
+          description: Payment doesn't exist
+  /Post_on_sites{name}:
+    parameters:
+      - name: name
+        in: path
+        required: true
+        description: The user's name
+        type: string
+    get:
+      summary: Shows the site where posted
+      description: Returns url sites
+      responses:
+        200:
+          description: You have posted on that
+          schema:
+            $ref: "#/definitions/post_site"
+        404:
+          description: The user does not exists
+    put:
+      description: write the URL
+      parameters:
+        - name: post_site
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/post_site"
+      responses:
+        200:
+          description: make a sharing on site  
+        404:
+          description: user doesn't exist      
+  /Search_album{album}:
+    parameters:
+      - name: album
+        in: path
+        required: true
+        description: which album
+        type: string
+    get:
+      description: returns track by album  
+      responses:
+        200:
+          description: In this album
+          schema:
+            $ref: "#/definitions/track"
+        404:
+          description: album doesn't exist
+  /Search_track{title}:
+    parameters:
+      - name: title
+        in: path
+        required: true
+        description: which track
+        type: string
+    get:
+      description: returns track by its title  
+      responses:
+        200:
+          description: details of track
+          schema:
+            $ref: "#/definitions/track"
+        404:
+          description: track doesn't exist
+  /menu_album{album}:
+    parameters:
+      - name: album
+        in: path
+        required: true
+        description: The album you want
+        type: string
+    get:
+      description: returns the tracks with details of album
+      responses:
+        200:
+          description: What tracks the album has
+          schema:
+            $ref: "#/definitions/track"
+        404:
+          description: This album doesn't exist
+  /menu_artists{artist}:
+    parameters:
+      - name: artist
+        in: path
+        required: true
+        description: The artist you want
+        type: string
+    get:
+      description: returns the artist's tracks with details 
+      responses:
+        200:
+          description: those songs belong to this artist
+          schema:
+            $ref: "#/definitions/track"
+        404:
+          description: This artist doesn't exist
+  /menu_chronology{chronology}:
+    parameters:
+      - name: chronology
+        in: path
+        required: true
+        description: The chronology you want
+        type: string
+    get:
+      description: returns the tracks with details of that chronology
+      responses:
+        200:
+          description: What songs was composed in this chronology
+          schema:
+            $ref: "#/definitions/track"
+        404:
+          description: In this chronology there wasn't any song composed
+  /downloads:
+    post:
+      description: deposit money for bonus and active downloads
+      responses:
+        204:
+          description: Bonus and downloads available
+          schema:
+            $ref: "#/definitions/total_downs"
+    get:
+      description: Returns available downloads
+      responses:
+        200:
+          description: You have available the following
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/total_downs"
+    put:
+      description: Update available downloads and bonus
+      responses:
+        200:
+          description: Updating your bonus
+          schema:
+            $ref: "#/definitions/total_downs"
+  
+    
